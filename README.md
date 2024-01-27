@@ -4,7 +4,7 @@
 
 MuckSeg_FCMAE is a self-supervised pre-training framework to real-time instance segmentation of TBM muck images.
 
-<img src="/docs/img1.jpg" alt="result1" width="768" height="512"> 
+<img src="/docs/img1.png" alt="result1" width="768" height="512"> 
 
 ## Requirements
 
