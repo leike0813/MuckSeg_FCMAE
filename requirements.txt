@@ -1,0 +1,16 @@
+numpy~=1.24.3
+torchvision==0.9.0
+pillow~=9.4.0
+yaml~=0.2.5
+pyyaml~=6.0
+yacs~=0.1.6
+sympy~=1.11.1
+pytorch-lightning==1.6.5
+torchmetrics==0.10.3
+tqdm~=4.65.0
+pandas~=1.5.3
+pynverse~=0.1.4.6
+pytorch==1.8.0
+matplotlib~=3.7.1
+timm==0.3.2
+minkowskiengine==0.5.4

@@ -1,0 +1,80 @@
+BASE:
+- ''
+CONFIG_OUTPUT_PATH: configs
+DATA:
+  DATA_PATH: ''
+  DATAMODULE:
+    train_volume: 30000
+    num_workers: 0
+    test_volume: 1000
+    val_volume: 100
+PREDICT:
+  DATA_PATH: ''
+MODEL:
+  DECODER:
+    neck_depth: 8
+    dim: 512
+    neck_kernel_size: 7
+    kernel_sizes:
+    - 7
+    - 7
+    depths:
+    - 2
+    - 2
+  DIM: 52
+  DROP_PATH_RATE: 0.2
+  ENCODER:
+    depths:
+    - 3
+    - 9
+    - 9
+    - 3
+    kernel_sizes:
+    - 7
+    - 7
+    - 7
+    - 7
+    multi_scale_input: false
+    stem_routes:
+    - 3CONV
+    - 5CONV
+    - 7CONV
+    - 9CONV
+    - D-3CONV
+    - D-5CONV
+    - A-3CONV
+    - A-5CONV
+  IMAGE_SIZE: 512
+  LOSS:
+    norm_pix_loss: false
+  MLP_RATIO: 4.0
+  MASK_RATIO: 0.6
+  SPEC_NAME: 'Large'
+  TYPE: MuckSeg_FCMAE
+  USE_CONVNEXT_V2: true
+TRAIN:
+  BATCH_SIZE: 2
+  EXPERIMENT_NAME: MuckSeg_FCMAE
+  TAG: ''
+  LR_SCHEDULER:
+    CYCLICLR:
+      base_lr: 0.00001
+      cycle_momentum: false
+      max_lr: 0.0001
+      mode: exp_range
+      gamma: 0.99999
+      step_size_down: 2000
+      step_size_up: 2000
+    FREQUENCY: 1
+    NAME: CyclicLR
+  TRAINER:
+    max_steps: 100000
+    min_steps: 5000
+    overfit_batches: 0
+    precision: 16
+    val_check_interval: 0.2
+  USE_BATCHSIZE_FINDER: false
+  USE_CUSTOM_CHECKPOINTING: true
+  CHECKPOINT_SAVELAST: true
+  CHECKPOINT_TOPK: 3
+  USE_EARLYSTOPPING: false
